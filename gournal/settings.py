@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'ktwh)@fd(i2==yv(nn_0hy4u##ruiv
 # DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gournal.herokuapp.com','127.0.0.1']
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
 # Application definition
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'gournal.wsgi.application'
 
 
 
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
