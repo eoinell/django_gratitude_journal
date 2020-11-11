@@ -1,11 +1,12 @@
 import os, random
 from django import template
+from django.contrib.staticfiles import finders
+
 
 register = template.Library()
 
 @register.simple_tag
 def bg():
-    relpath =  r"static\\logger\\images\\"
-    path = os.path.join(os.path.dirname(__file__),'..', relpath)
-    choices = os.listdir(path)
+    p = finders.find('logger/images')
+    choices = os.listdir(p)
     return 'logger//images//' + str(random.choice(choices))
