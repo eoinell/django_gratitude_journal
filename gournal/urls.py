@@ -18,9 +18,10 @@ from django.urls import include, path
 from django.contrib.auth import views as auth_views
 from register import views as rv
 from logger import views as lv
+from . import views
 
 urlpatterns = [
-    path('', lv.index, name='home'),
+    path('', views.index),
     path('logger/', include('logger.urls')),
     path("register/", rv.register, name="register"),
     path('admin/', admin.site.urls),
