@@ -82,8 +82,6 @@ WSGI_APPLICATION = 'gournal.wsgi.application'
 
 import dj_database_url
 
-...
-
 DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'gournal.herokuapp.com']
