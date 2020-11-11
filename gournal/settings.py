@@ -131,3 +131,4 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/logger/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+ALLOWED_HOSTS = ['gournal.herokuapp.com','127.0.0.1']
