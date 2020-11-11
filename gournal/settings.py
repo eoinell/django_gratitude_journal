@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'ktwh)@fd(i2==yv(nn_0hy4u##ruiv
 # DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['gournal.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['gournal.herokuapp.com','127.0.0.1', 'localhost']
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
 # Application definition
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'gournal.wsgi.application'
 
 
 
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
@@ -144,7 +144,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR #/ 'staticfiles'
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
