@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Create an Account{% endblock %}
+
+{% block content %}
+<div class="w3-display-middle" id="home" text-align="center">  
+    <form method="POST" class="form-group" text-align="center">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Register</button>
+    </form>
+<div class="w3-display-middle" id="home">  
+{% endblock %}

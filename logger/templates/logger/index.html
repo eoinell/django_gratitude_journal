@@ -1,0 +1,60 @@
+{% extends 'logger/base.html' %}
+{% load background_generator %}
+{% load static %}
+
+
+{% block content %}
+
+<style>
+    .bgimg-1 {
+        background-image: url("{% get_static_prefix %}{% bg %}");
+        min-height: 100%;
+    }
+       
+    .bgimg-1 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+    @media only screen and (max-device-width: 1600px) {
+        .bgimg-1 {
+        background-attachment: scroll;
+        min-height: 500px;
+        }
+    }
+</style>
+
+{% if error %}<p><strong>Input failed!}</strong></p>{% endif %}
+
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+        <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+            <div class="w3-display-middle" style="white-space:nowrap;text-align:center;">
+                <span class="w3-center w3-padding-small w3-black w3-large w3-animate-opacity">
+                    <i>Enter one or more things you're grateful for today</i>
+                </span>
+                <form action="/logger/log/" method="post" style="align:center;">
+                    {% csrf_token %}
+                        {{ form }}
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="w3-content w3-container w3-padding-64" id="about">
+    <h3 class="w3-center">Why Gratitude?</h3>
+    <div class="w3-center">
+        <img src="{% static 'logger/logos/hands.png' %}" alt="logo" height=100 width=100 format="PNG" class="w3-center">
+    </div>
+    <p>Gratitude journaling is the habit of recording and reflecting on things (typically three) that you are grateful for on a regular basis. In essence, you are rewiring your brain to focus more on the positive aspects of your life and build up resilience against negative situations. Keeping a gratitude journal is a popular practice in positive psychology - the scientific study of happiness. It’s commonly also referred to as “counting your blessings” or “three good things.”
+        <h5><i>What are the benefits of gratitude?</i></h5>
+        Recent research in positive psychology suggests that practicing gratitude may increase overall feelings of happiness and reduce depressive symptoms. One of the most commonly cited research papers relating to gratitude journals is by Robert A. Emmons and Michael E. McCullough. They ran three studies in which participants were instructed to record daily experiences:
+        
+        <i>“The gratitude-outlook groups exhibited heightened well-being across several, though not all, of the outcome measures across the 3 studies, relative to the comparison groups. The effect on positive affect appeared to be the most robust finding.”</i>
+        
+        Though you may start feeling the effects of keeping your gratitude journal early on, some research suggests that the benefits only become significant after a month of journaling and increase over time. An initial happy “boost” may relate more to the excitement of starting a new habit; learning to focus on the good things requires a bit more time. Try to be patient with the process.</p>
+  </div>
+{% endblock %}
