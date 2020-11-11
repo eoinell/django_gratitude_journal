@@ -86,7 +86,7 @@ import dj_database_url
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'gournal.herokuapp.com']
 
 
 DATABASES = {
