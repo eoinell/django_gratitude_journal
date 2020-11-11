@@ -20,7 +20,7 @@ from register import views as rv
 from logger import views as lv
 
 urlpatterns = [
-    path('', lv.index, name='home')
+    path('', lv.index, name='home'),
     path('logger/', include('logger.urls')),
     path("register/", rv.register, name="register"),
     path('admin/', admin.site.urls),
