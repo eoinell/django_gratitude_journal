@@ -9,4 +9,4 @@ register = template.Library()
 def bg():
     p = finders.find('logger/images')
     choices = os.listdir(p)
-    return 'logger//images//' + str(random.choice(choices))
+    return 'logger/images/' +  str(random.choice(choices))

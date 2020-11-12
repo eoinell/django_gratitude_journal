@@ -60,13 +60,18 @@ def submitted(request):
     
     words = Word.objects.all()
     text = ' '.join([w.text for w in words])
-    wc = WordCloud(background_color="white")
-    wc.generate(text)
-    fig, ax = plt.subplots()
-    ax.imshow(wc, interpolation='bilinear', cmap=plt.cm.gray)
-    ax.axis('off')
+    if text:
+        wc = WordCloud(background_color="white")
+        
+        wc.generate(text)
+        fig, ax = plt.subplots()
+        ax.imshow(wc, interpolation='bilinear', cmap=plt.cm.gray)
+        ax.axis('off')
+    else:
+        fig, ax = plt.subplots()
+        ax.annotate((0.5, 0.5), 'You need to log some words first!')
     uri = plot_to_uri(fig)
-
+        
 
     return render(request, 'logger/breakdown.html', {"recent_words": recent_words,
                                                      "plot": uri})
