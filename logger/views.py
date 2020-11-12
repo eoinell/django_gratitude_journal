@@ -59,7 +59,7 @@ def submitted(request):
     seen = set()
     recent_words = [w for w in words if not (w in seen or seen.add(w))]
     
-    words = Word.objects.all()
+    words = request.user.word_set.all()
     text = ' '.join([w.text for w in words])
     if text:
         wc = WordCloud(background_color="white")
