@@ -49,33 +49,36 @@ def log(request):
         return HttpResponseRedirect(reverse('login'))
 
 def submitted(request):
-    
-    words = map(lambda x: x.text, Word.objects.filter(
-                                                    sub_date__date=datetime.today().date(),
-                                                    sub_date__gte=datetime.now() - timedelta(weeks=1),
-                                                    user=request.user 
-                                                ).order_by('-sub_date')
-                )
-    seen = set()
-    recent_words = [w for w in words if not (w in seen or seen.add(w))]
-    
-    words = request.user.word_set.all()
-    text = ' '.join([w.text for w in words])
-    if text:
-        wc = WordCloud(background_color="white")
+    if request.user.is_authenticated:
+        words = map(lambda x: x.text, Word.objects.filter(
+                                                        sub_date__date=datetime.today().date(),
+                                                        sub_date__gte=datetime.now() - timedelta(weeks=1),
+                                                        user=request.user 
+                                                    ).order_by('-sub_date')
+                    )
+        seen = set()
+        recent_words = [w for w in words if not (w in seen or seen.add(w))]
         
-        wc.generate(text)
-        fig, ax = plt.subplots()
-        ax.imshow(wc, interpolation='bilinear', cmap=plt.cm.gray)
-        ax.axis('off')
-    else:
-        fig, ax = plt.subplots()
-        ax.annotate('You need to log some words first!', (0.1, 0.5), fontsize='xx-large')
-        ax.axis('off')
-    uri = plot_to_uri(fig)
-        
+        words = request.user.word_set.all()
+        text = ' '.join([w.text for w in words])
+        if text:
+            wc = WordCloud(background_color="white")
+            
+            wc.generate(text)
+            fig, ax = plt.subplots()
+            ax.imshow(wc, interpolation='bilinear', cmap=plt.cm.gray)
+            ax.axis('off')
+        else:
+            fig, ax = plt.subplots()
+            ax.annotate('You need to log some words first!', (0.1, 0.5), fontsize='xx-large')
+            ax.axis('off')
+        uri = plot_to_uri(fig)
+            
 
-    return render(request, 'logger/breakdown.html', {"recent_words": recent_words,
-                                                     "plot": uri})
+        return render(request, 'logger/breakdown.html', {"recent_words": recent_words,
+                                                        "plot": uri})
+    else:
+        messages.info(request, 'You need to be logged in to see a word breakdownd!')
+        return HttpResponseRedirect(reverse('login'))
 
     
