@@ -85,26 +85,26 @@ WSGI_APPLICATION = 'gournal.wsgi.application'
 
 
 
-# DEBUG = True
+DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'gournal',
-        'USER': 'name',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'gournal',
+#         'USER': 'name',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 
 
 
