@@ -69,7 +69,7 @@ def submitted(request):
         ax.axis('off')
     else:
         fig, ax = plt.subplots()
-        ax.annotate((0.5, 0.5), 'You need to log some words first!')
+        ax.annotate('You need to log some words first!', (0.5, 0.5))
     uri = plot_to_uri(fig)
         
 
