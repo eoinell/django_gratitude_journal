@@ -52,7 +52,8 @@ def submitted(request):
     
     words = map(lambda x: x.text, Word.objects.filter(
                                                     sub_date__date=datetime.today().date(),
-                                                    sub_date__gte=datetime.now() - timedelta(weeks=1) 
+                                                    sub_date__gte=datetime.now() - timedelta(weeks=1),
+                                                    user=request.user 
                                                 ).order_by('-sub_date')
                 )
     seen = set()
