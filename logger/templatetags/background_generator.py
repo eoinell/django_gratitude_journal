@@ -9,5 +9,5 @@ register = template.Library()
 def bg():
     p = finders.find('logger/images')
     choices = os.listdir(p)
-    return '/images/' +  str(random.choice(choices))
-    # return '/images/' + "nathan-dumlao-EwaV3HjwmUo-unsplash.jpg"
+    # return '/images/' +  str(random.choice(choices))
+    return 'images/' + "nathan-dumlao-EwaV3HjwmUo-unsplash.jpg"
