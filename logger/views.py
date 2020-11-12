@@ -18,7 +18,7 @@ import urllib, base64
 
 def plot_to_uri(figure):
     buf = io.BytesIO()
-    figure.savefig(buf, format='png', dpi=1_500)
+    figure.savefig(buf, format='png', dpi=200)
     buf.seek(0)
     string = base64.b64encode(buf.read())
     return urllib.parse.quote(string)
@@ -66,7 +66,7 @@ def submitted(request):
             
             wc.generate(text)
             fig, ax = plt.subplots()
-            ax.imshow(wc, interpolation='bilinear', cmap=plt.cm.gray)
+            ax.imshow(wc, interpolation='bilinear', cmap=plt.cm.viridis)
             ax.axis('off')
         else:
             fig, ax = plt.subplots()

@@ -4,13 +4,15 @@
 <br>
 <br>
 <br>
-<div class="w3-padding-large" style="display:inline-block;text-align:center;" align="center">
+<div class="w3-padding-large" style="float: left;">
     <h3>Words submitted today:</h3>
     {% for word in recent_words %}
     <li>{{word}}</li>
     {% endfor %}
 </div>
-<div style="display: inline-block" align="center">
+<div style="float: left;">
+    <h3>Wordcloud of all your submitted words</h3>
+    <br>
     <img src="data:image/png;base64,{{ plot }}" alth="" height="500" ,width="500">
 </div>
 {% endblock %}
