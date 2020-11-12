@@ -23,10 +23,8 @@ from . import views
 urlpatterns = [
     path('', views.index),
     path('logger/', include('logger.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path("register/", rv.register, name="register"),
     path('admin/', admin.site.urls),
 ]
 
-urlpatterns += [
-    path('accounts/', include('django.contrib.auth.urls')),
-]
