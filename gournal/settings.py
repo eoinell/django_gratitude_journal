@@ -25,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'ktwh)@fd(i2==yv(nn_0hy4u##ruivvqn4##k#(@+4u27e8kn_')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['gournal.herokuapp.com','127.0.0.1', 'localhost']
+
+ALLOWED_HOSTS = ['gournal.herokuapp.com', '127.0.0.1', 'localhost']
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
 # Application definition
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'gournal.wsgi.application'
 
 
 
-DEBUG = False
+# DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
@@ -147,7 +147,7 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.ManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 
 LOGIN_REDIRECT_URL = '/logger/'
