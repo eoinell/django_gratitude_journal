@@ -24,8 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'ktwh)@fd(i2==yv(nn_0hy4u##ruivvqn4##k#(@+4u27e8kn_'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'eoin)@fd(i2==yv(nn_0hy4u##ruivvqn4##k#(@+4u27e8kn_')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = False
 
 ALLOWED_HOSTS = ['gournal.herokuapp.com', '127.0.0.1', 'localhost']
 
