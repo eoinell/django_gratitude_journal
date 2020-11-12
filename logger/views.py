@@ -24,7 +24,7 @@ def plot_to_uri(figure):
     return urllib.parse.quote(string)
 
 class GratForm(forms.Form):
-    log_field = forms.CharField(label='example thing 1, thing two, three', max_length=200)
+    log_field = forms.CharField(label='', initial="example thing 1, thing and other thing, thing 3" max_length=200)
 
 def index(request, error=False):
     form = GratForm()
