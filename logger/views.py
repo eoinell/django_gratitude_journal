@@ -70,6 +70,7 @@ def submitted(request):
     else:
         fig, ax = plt.subplots()
         ax.annotate('You need to log some words first!', (0.5, 0.5), fontsize='xx-large')
+        ax.axis('off')
     uri = plot_to_uri(fig)
         
 
