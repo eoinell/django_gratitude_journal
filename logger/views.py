@@ -78,7 +78,7 @@ def submitted(request):
         return render(request, 'logger/breakdown.html', {"recent_words": recent_words,
                                                         "plot": uri})
     else:
-        messages.info(request, 'You need to be logged in to see a word breakdownd!')
+        messages.info(request, 'You need to be logged in to see a word breakdown!')
         return HttpResponseRedirect(reverse('login'))
 
     
